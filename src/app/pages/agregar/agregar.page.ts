@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarPage implements OnInit {
 
-  constructor() { }
+
+  apellido:string='';
+  edad!:number;
+  user:string='';
+
+  constructor(private router:Router, private activateroute:ActivatedRoute){
+    this.activateroute.queryParams.subscribe(parametro=>{
+      if(this.router.getCurrentNavigation()?.extras.state){
+
+        this.edad=this.router.getCurrentNavigation()?.extras?.state?.['ed'];
+        this.apellido=this.router.getCurrentNavigation()?.extras?.state?.['ap'];
+        this.user=this.router.getCurrentNavigation()?.extras?.state?.['user'];
+        
+
+      }
+    });
+
+  }
 
   ngOnInit() {
   }

@@ -21,6 +21,6 @@
     <ion-input label="Contraseña" labelPlacement="floating" placeholder="1234.."></ion-input>
   </ion-item>
   <ion-button color="success" [routerLink]="['/home']">Entrar{{usuario}}</ion-button>
-  <ion-button color="warning"[routerLink]="['/agregar']">Crear Usuario</ion-button>
+  <ion-button color="warning"(click)="irPagina()">Crear Usuario</ion-button>
 
 </ion-content>
